@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\SecurityBundle\Security;
 use App\Entity\Post;
 
-
+#[IsGranted("ROLE_USER")]
 class PostController extends AbstractController
 {
     public function __construct(private ManagerRegistry $doctrine, private Security $security)
