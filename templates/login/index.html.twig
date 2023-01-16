@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<form class="flex flex-col items-center" action="{{path('app_login')}}" method="POST">
+		<div class="block">
+			<label>Email</label>
+			<input class="rounded-md py-2 px-6 block text-sm text-gray-700 dark: text-black my-5" type="text" name="_username" value="{{lastUsername}}"/>
+		</div>
+
+		<div>
+			<label>Password</label>
+			<input class="rounded-md py-2 px-6 block text-sm text-gray-700 dark: text-black my-5" type="password" name="_password"/>
+		</div>
+
+		<ipnut type="hidden" name="_target_path" value="/list"/>
+		<button type="submit" class="rounded-md my-5 px-6 py-2 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">Login</button>
+		{% if error %}
+			<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+	</form>
+{% endblock body %}
